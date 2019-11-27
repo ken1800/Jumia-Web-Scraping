@@ -1,0 +1,110 @@
+{% extends 'base.html'%}
+{% block title %}
+Scraped Data 
+{% endblock title %}
+
+{% block context %}
+
+
+<script>
+    var append_increment = 0;
+    setInterval(function() {
+        $.ajax({
+            type: "GET",
+            url: {% url 'get_more_tables' %},  // URL to your view that serves new info
+            data: {'append_increment': append_increment}
+        })
+        .done(function(response) {
+            $('#_appendHere').append(response);
+            append_increment += 10;
+        });
+    }, 2000)
+    
+</script>
+
+
+<!-- <div class="container" >
+  <br>{% if messages %}
+  <ul class="messages">
+      <div class="alert alert-success alert-dismissible fade show"  role="alert">
+          {% for message in messages %}
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          {% endfor %}
+        </div>    
+  </ul>
+  {% endif %} -->
+  
+  <!-- <form method="POST">
+    {% csrf_token %}
+      <div class="form-group">
+        <input type="text"class="form-control" placeholder="add task" name="task">
+      </div>
+      <button type="submit" class="btn btn-primary">Add</button>
+    </form> -->
+    <br>
+<table class="table table-bordered ">
+  <thead class="thead-dark">
+    <tr>
+    
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Discount</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+     
+    {% if data %}
+    
+        {% for obj in data %}
+       
+        <td>{{obj.id}}</td>
+        <td>
+            <a href="{{obj.link}}">{{obj.name}}</a>
+             
+        </td>
+        <td>
+               {{obj.price}}
+        </td>
+        <td class="table-success">
+               {{obj.discount}}
+      </td>
+        <td>
+         
+    
+
+    </tbody>
+        {% endfor %}
+   
+    {% endif %}
+     
+</table>
+<nav aria-label="Page navigation example">
+<!-- <ul class="pagination justify-content-end">
+
+    <span class="step-links">
+        {% if data.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            
+            <a href="?page={{ data.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ data.number }} of {{ data.paginator.num_pages }}.
+        </span>
+
+        {% if data.has_next %}
+            <a href="?page={{ data.next_page_number }}">next</a>
+            <a href="?page={{ data.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+    </ul>
+    </nav> -->
+
+</div>
+
+{% endblock context %}
