@@ -23,6 +23,7 @@ make sure the following are installed
 cd Jumia-Scraper # migrating to the root directory 'iCrawler'
 python manage.py runserver # starts the django server 'localhost:8000'
 scrapyd # use this command when you are in the perfecto directory 'starting the scrapyd daemon'
+curl http://localhost:6800/schedule.json -d project=default -d spider=jumia #open another tab in the perfecto directory
 ```
 
 ## Contributing
