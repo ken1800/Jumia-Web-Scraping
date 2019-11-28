@@ -27,7 +27,7 @@ curl http://localhost:6800/schedule.json -d project=default -d spider=jumia #ope
 ```
 ## Screenshots
 ![scrapy](https://user-images.githubusercontent.com/50213124/69782599-7cc49c00-117f-11ea-9eb9-87e9a5d23443.png)
-
+![scrapy2](https://user-images.githubusercontent.com/50213124/69782791-06746980-1180-11ea-90a0-c763dd1e120a.png)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
