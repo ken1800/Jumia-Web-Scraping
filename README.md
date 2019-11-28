@@ -25,7 +25,7 @@ python manage.py runserver # starts the django server 'localhost:8000'
 scrapyd # use this command when you are in the perfecto directory 'starting the scrapyd daemon'
 curl http://localhost:6800/schedule.json -d project=default -d spider=jumia #open another tab in the perfecto directory
 ```
-
+##Screenshots
 ![scrapy](https://user-images.githubusercontent.com/50213124/69782599-7cc49c00-117f-11ea-9eb9-87e9a5d23443.png)
 
 
