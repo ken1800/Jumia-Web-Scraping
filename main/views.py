@@ -8,11 +8,11 @@ from django.core.paginator import Paginator
 def home(request):   
         data = Perfecto.objects.all()
 
-        # paginator = Paginator(data, 5)
+        paginator = Paginator(data, 20)
 
-        # page = request.GET.get('page')
+        page = request.GET.get('page')
  
-        # data = paginator.get_page(page)
+        data = paginator.get_page(page)
 
         return render(request,'index.html',{'data':data})
     
